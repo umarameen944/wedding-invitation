@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { initHeroAnim } from "../animations/gsapAnimations";
-import CountdownTimer from "./CountDownTimer";
+import CountdownTimer from "./CountdownTimer";
 
 export default function Hero() {
   useEffect(() => {

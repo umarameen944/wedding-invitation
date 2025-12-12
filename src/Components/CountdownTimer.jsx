@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import "./CountdownTimer.css";
 
 export default function CountdownTimer() {
   const weddingDate = new Date("2025-12-26T00:00:00");
@@ -52,7 +51,6 @@ export default function CountdownTimer() {
         <span className="days-label">Days</span>
       </div>
 
-      {/* LINE 2 – HR : MIN : SEC */}
       <div className="time-line">
         <span>{timeLeft.hours} Hr</span>
         <span className="separator">:</span>
