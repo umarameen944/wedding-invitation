@@ -8,15 +8,21 @@ import Footer from "./Components/Footer";
 import Preloader from "./Components/Preloader";
 import AnimatedHearts from "./Components/AnimatedHearts ";  
 import SuperParticles from "./Components/SuperParticles";
+import AudioPlayer from "./Components/AudioPlayer"; 
 
 
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [enableFancyEffects, setEnableFancyEffects] = useState(false);
+  const [showAudioPlayer, setShowAudioPlayer] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 300);
+    const t = setTimeout(() => {
+      setLoaded(true);
+      // Show audio player after a short delay to ensure page is loaded
+      setTimeout(() => setShowAudioPlayer(true), 500);
+    }, 300);
     return () => clearTimeout(t);
   }, []);
 
@@ -41,8 +47,7 @@ export default function App() {
     <>
       {!loaded && <Preloader />}
 
-      <div className={`app-root ${loaded ? "ready" : ""}`
-      } style={{
+      <div className={`app-root ${loaded ? "ready" : ""}`} style={{
         width: "100%",
       }}>
         <Navbar />
@@ -58,6 +63,9 @@ export default function App() {
           <Gallery />
         </main>
         <Footer />
+
+        {/* Audio Player - Fixed at bottom right */}
+        {showAudioPlayer && <AudioPlayer />}
       </div>
     </>
   );
