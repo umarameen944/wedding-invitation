@@ -66,7 +66,7 @@ export default function Hero() {
         </h1>
         
         <p className="subtitle">
-          We request the honour of your presence — December 26 - 10, 2025
+          We request the honour of your presence — December 26 - 2025
         </p>
         
         <CountdownTimer />

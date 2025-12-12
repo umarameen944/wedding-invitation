@@ -24,7 +24,7 @@ export default function Footer(){
         
         {/* Wedding Date */}
         <div className="wedding-date">
-          December 26 - 10, 2025
+          December 26 - 2025
         </div>
         
         {/* Copyright */}
