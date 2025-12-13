@@ -3403,3 +3403,318 @@ body.debug-visuals .super-particles { outline: 1px dashed rgba(255,0,0,0.12); }
     display: none !important;
   }
 }
+/* ========== Mobile-Specific Audio Player Styles ========== */
+
+/* ========== Elegant Audio Player Design ========== */
+
+/* Container */
+.audio-player-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+}
+
+/* Main audio player */
+.audio-player {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 50px;
+  padding: 15px;
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Audio buttons - Elegant design */
+.audio-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), #e0b52e);
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 
+    0 6px 20px rgba(212, 175, 55, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.audio-icon {
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.audio-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 10px 25px rgba(212, 175, 55, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Muted state */
+.audio-btn.muted {
+  background: linear-gradient(135deg, #f9f7f2, #f2eee4);
+  color: var(--gold);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.audio-btn.muted:hover {
+  background: linear-gradient(135deg, #f2eee4, #eae6d9);
+}
+
+/* Sound wave animation */
+.sound-wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: soundWave 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes soundWave {
+  0%, 100% {
+    box-shadow: 
+      0 0 0 0 rgba(212, 175, 55, 0.2),
+      inset 0 0 0 0 rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 8px rgba(212, 175, 55, 0.1),
+      inset 0 0 15px rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ========== Mobile Optimizations ========== */
+@media (max-width: 768px) {
+  .audio-player-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  /* Elegant mobile player */
+  .audio-player {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 
+      0 6px 25px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+  
+  /* Smaller, elegant buttons for mobile */
+  .audio-btn {
+    width: 48px;
+    height: 48px;
+    box-shadow: 
+      0 5px 15px rgba(212, 175, 55, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+  
+  .audio-icon {
+    font-size: 20px;
+  }
+  
+  /* Larger play button for initial state */
+  .play-large-btn {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, var(--gold), #e0b52e);
+    animation: gentlePulse 2s infinite;
+  }
+  
+  @keyframes gentlePulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 
+        0 6px 20px rgba(212, 175, 55, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 
+        0 8px 25px rgba(212, 175, 55, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  /* Subtle mobile hint */
+  .audio-hint-mobile {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: linear-gradient(135deg, var(--gold), #e0b52e);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeInUp 0.5s ease-out;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .hint-icon {
+    font-size: 14px;
+    animation: subtleBounce 1.5s infinite;
+  }
+  
+  @keyframes subtleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .audio-player-container {
+    bottom: 30px;
+    right: 30px;
+  }
+  
+  .audio-player {
+    padding: 18px;
+  }
+  
+  .audio-btn {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .audio-icon {
+    font-size: 24px;
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 480px) {
+  .audio-player-container {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .audio-player {
+    padding: 10px;
+  }
+  
+  .audio-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .audio-icon {
+    font-size: 18px;
+  }
+  
+  .play-large-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .audio-hint-mobile {
+    bottom: 70px;
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .audio-player {
+    background: rgba(26, 26, 26, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(212, 175, 55, 0.15);
+  }
+  
+  .audio-btn.muted {
+    background: linear-gradient(135deg, #333, #444);
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .audio-player {
+    background: rgba(255, 255, 255, 0.96);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .audio-player {
+      background: rgba(30, 30, 30, 0.96);
+    }
+  }
+}
+
+/* Remove tap highlight on mobile */
+.audio-btn {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* Smooth transitions */
+.audio-btn,
+.audio-player {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper spacing on very small heights */
+@media (max-height: 600px) {
+  .audio-player-container {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .audio-hint-mobile {
+    bottom: 65px;
+  }
+}
