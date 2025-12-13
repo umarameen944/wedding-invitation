@@ -6,10 +6,10 @@ export default function UmarAmeenCredit() {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Auto-close after 1.5 seconds
+    // Auto-close after 5 seconds
     const timer = setTimeout(() => {
       handleClose();
-    }, 1500);
+    }, 5000);
     
     return () => clearTimeout(timer);
   }, []);
