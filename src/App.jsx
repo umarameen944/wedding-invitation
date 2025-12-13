@@ -9,6 +9,7 @@ import Preloader from "./Components/Preloader";
 import AnimatedHearts from "./Components/AnimatedHearts ";  
 import SuperParticles from "./Components/SuperParticles";
 import AudioPlayer from "./Components/AudioPlayer"; 
+import UmarAmeenCredit from "./Components/UmarAmeenCredit";
 
 
 
@@ -51,6 +52,9 @@ export default function App() {
         width: "100%",
       }}>
         <Navbar />
+
+        {/* Umar Ameen Credit Chip - Simple & Elegant */}
+        <UmarAmeenCredit />
 
         {/* ALWAYS visible on all device sizes */}
         {enableFancyEffects && <SuperParticles />}
