@@ -136,7 +136,6 @@ export default function Events() {
                     `https://www.google.com/maps?q=${encodeURIComponent(
                       ev.mapsQuery
                     )}`,
-                    "_blank"
                   )
                 }>Click to view on map
                 </span>
