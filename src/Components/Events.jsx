@@ -1,3 +1,5 @@
+import { color } from "framer-motion";
+import { text } from "framer-motion/client";
 import React, { useEffect, useRef, useState } from "react";
 import {
   FaClock,
@@ -5,6 +7,7 @@ import {
   FaMapMarkerAlt,
   FaMosque,
   FaDownload,
+  FaMapMarkedAlt  
 } from "react-icons/fa";
 
 const events = [
@@ -108,7 +111,26 @@ export default function Events() {
               </div>
 
               <div
-                className="event-row event-link"
+                className="event-row"
+              >
+                <div className="ev-icon">
+                  <FaMapMarkerAlt />
+                </div>
+                <span>{ev.venue}</span>
+              </div>
+               <div
+                className="event-row"
+              >
+               <div className="ev-icon">
+                  <FaMapMarkedAlt />
+                </div>
+              <span
+              style={{
+                outline:'none',
+                color:'#a0afdaff',
+                 textDecoration:'UNDERLINE',
+                cursor:'pointer'
+              }}
                 onClick={() =>
                   window.open(
                     `https://www.google.com/maps?q=${encodeURIComponent(
@@ -116,14 +138,9 @@ export default function Events() {
                     )}`,
                     "_blank"
                   )
-                }
-              >
-                <div className="ev-icon">
-                  <FaMapMarkerAlt />
+                }>Click to view on map
+                </span>
                 </div>
-                <span>{ev.venue}</span>
-              </div>
-
               <p className="event-note">
                 Kindly arrive on time.
               </p>
